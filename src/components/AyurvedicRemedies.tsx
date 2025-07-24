@@ -25,7 +25,11 @@ interface Remedy {
   difficulty: "easy" | "moderate" | "complex";
 }
 
-const AyurvedicRemedies = () => {
+interface AyurvedicRemediesProps {
+  onBack: () => void;
+}
+
+const AyurvedicRemedies = ({ onBack }: AyurvedicRemediesProps) => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCondition, setSelectedCondition] = useState("all");
 
@@ -126,6 +130,17 @@ const AyurvedicRemedies = () => {
     <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
+          {/* Back Button */}
+          <div className="mb-8">
+            <Button 
+              variant="outline" 
+              onClick={onBack}
+              className="mb-4"
+            >
+              ← Back to Diagnosis
+            </Button>
+          </div>
+          
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

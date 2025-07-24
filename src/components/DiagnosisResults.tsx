@@ -22,9 +22,10 @@ interface DiagnosisProps {
   };
   onShowHospitals: () => void;
   onShowRemedies: () => void;
+  onBack: () => void;
 }
 
-const DiagnosisResults = ({ diagnosis, onShowHospitals, onShowRemedies }: DiagnosisProps) => {
+const DiagnosisResults = ({ diagnosis, onShowHospitals, onShowRemedies, onBack }: DiagnosisProps) => {
   const getSeverityColor = (severity: string) => {
     switch (severity) {
       case "high": return "text-destructive";
@@ -51,6 +52,17 @@ const DiagnosisResults = ({ diagnosis, onShowHospitals, onShowRemedies }: Diagno
     <section className="py-20 bg-gradient-subtle">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
+          {/* Back Button */}
+          <div className="mb-8">
+            <Button 
+              variant="outline" 
+              onClick={onBack}
+              className="mb-4"
+            >
+              ← Back to Assessment
+            </Button>
+          </div>
+          
           {/* Header */}
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">

@@ -16,24 +16,67 @@ import { useToast } from "@/hooks/use-toast";
 
 interface SymptomCheckerProps {
   onDiagnosis: (diagnosis: any) => void;
+  onBack: () => void;
 }
 
-const SymptomChecker = ({ onDiagnosis }: SymptomCheckerProps) => {
+const SymptomChecker = ({ onDiagnosis, onBack }: SymptomCheckerProps) => {
   const [symptoms, setSymptoms] = useState("");
   const [isListening, setIsListening] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [recognition, setRecognition] = useState<any>(null);
   const { toast } = useToast();
 
+  // Initialize speech recognition
+  useState(() => {
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+      const SpeechRecognition = (window as any).webkitSpeechRecognition || (window as any).SpeechRecognition;
+      const recognitionInstance = new SpeechRecognition();
+      recognitionInstance.continuous = false;
+      recognitionInstance.interimResults = false;
+      recognitionInstance.lang = 'en-US';
+      
+      recognitionInstance.onresult = (event: any) => {
+        const transcript = event.results[0][0].transcript;
+        setSymptoms(prev => prev ? `${prev} ${transcript}` : transcript);
+        setIsListening(false);
+      };
+      
+      recognitionInstance.onerror = () => {
+        setIsListening(false);
+        toast({
+          title: "Voice Recognition Error",
+          description: "Could not access microphone. Please try typing your symptoms.",
+          variant: "destructive",
+        });
+      };
+      
+      recognitionInstance.onend = () => {
+        setIsListening(false);
+      };
+      
+      setRecognition(recognitionInstance);
+    }
+  });
+
   const handleVoiceToggle = () => {
-    if (isListening) {
-      setIsListening(false);
-      // Stop voice recognition
-    } else {
-      setIsListening(true);
-      // Start voice recognition
+    if (!recognition) {
       toast({
-        title: "Voice Recognition Active",
-        description: "Please describe your symptoms clearly.",
+        title: "Voice Not Supported",
+        description: "Your browser doesn't support voice recognition. Please type your symptoms.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    if (isListening) {
+      recognition.stop();
+      setIsListening(false);
+    } else {
+      recognition.start();
+      setIsListening(true);
+      toast({
+        title: "Listening...",
+        description: "Please speak clearly about your symptoms.",
       });
     }
   };
@@ -140,6 +183,17 @@ Focus on common conditions and provide helpful but safe recommendations. Always 
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
+        {/* Back Button */}
+        <div className="max-w-4xl mx-auto mb-8">
+          <Button 
+            variant="outline" 
+            onClick={onBack}
+            className="mb-4"
+          >
+            ← Back to Home
+          </Button>
+        </div>
+        
         <div className="max-w-4xl mx-auto text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Describe Your{" "}

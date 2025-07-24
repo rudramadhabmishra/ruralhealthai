@@ -3,7 +3,11 @@ import { Card } from "@/components/ui/card";
 import { Stethoscope, Heart, MapPin, Mic } from "lucide-react";
 import heroImage from "@/assets/healthcare-hero.jpg";
 
-const HeroSection = () => {
+interface HeroSectionProps {
+  onStartAssessment: () => void;
+}
+
+const HeroSection = ({ onStartAssessment }: HeroSectionProps) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-gradient-subtle overflow-hidden">
       {/* Background Image with Overlay */}
@@ -79,6 +83,7 @@ const HeroSection = () => {
               variant="medical" 
               size="xl"
               className="group"
+              onClick={onStartAssessment}
             >
               <Mic className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Start Voice Assessment
@@ -88,6 +93,7 @@ const HeroSection = () => {
               variant="healing" 
               size="xl"
               className="group"
+              onClick={onStartAssessment}
             >
               <Heart className="w-5 h-5 group-hover:scale-110 transition-transform" />
               Text Consultation

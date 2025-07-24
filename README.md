@@ -1,73 +1,33 @@
-# Welcome to your Lovable project
+# Team (SC1)3_TeamNo_1
 
-## Project info
+**URL**: [https://ruralhealthai.lovable.app](https://ruralhealthai.lovable.app)
 
-**URL**: https://lovable.dev/projects/fc158ebf-64c9-4c20-9710-fde8ce1a5f16
+---
 
-## How can I edit this code?
+## Team Members
 
-There are several ways of editing your application.
+### Name - Roll No - Reg No
 
-**Use Lovable**
+- **Rudra Madhab Mishra** (#23CSEAIML097, #23UG010882)  
+- **Dillip Padhi** (#23CSEAIML093, #23UG010878)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/fc158ebf-64c9-4c20-9710-fde8ce1a5f16) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+# Problem Statement 3  
+## AI-Powered Diagnostic Chatbot for Rural Healthcare Accessibility
 
-**Use your preferred IDE**
+In rural areas, timely healthcare access is limited, impacting the quality of medical interventions. The objective is to design an accessible, AI-driven chatbot platform (voice or text-based) that:
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Interactively assesses basic health symptoms  
+- Categorizes potential health issues  
+- Generates detailed preliminary diagnostic reports  
+- Provides referrals to qualified medical practitioners in nearby urban centers
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Core Objectives
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/fc158ebf-64c9-4c20-9710-fde8ce1a5f16) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+- **Simplified, multilingual, interactive user interface**  
+- **Accurate AI-driven initial diagnosis and reporting**  
+- **Integration of referral mechanisms for specialized medical care**  
+- **Accessible via basic mobile devices for broad reach**

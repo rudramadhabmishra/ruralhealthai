@@ -1,7 +1,7 @@
 # Team (SC1)3_TeamNo_1
 
 **URL**: [https://ruralhealthai.lovable.app](https://ruralhealthai.lovable.app)
-
+**ppt URL**: [https://docs.google.com/presentation/d/1YvuNCYMG48f0_HSzcZmZu4L1uDau1CMd/edit?usp=sharing&ouid=101898773569058189230&rtpof=true&sd=true]
 ---
 
 ## Team Members
